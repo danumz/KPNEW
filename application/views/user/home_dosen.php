@@ -24,11 +24,12 @@
           </thead>
         <tbody>
                 <?php 
-                 $no= 1;
+                 $no= 0;
                   $NIK = $this->session->userdata('NIK');
                 $verifikasi = $this->db->get_where('form_dosen', array('NIK'=>$NIK))->result();
                 if ($verifikasi > 0) {
                   foreach ($verifikasi as $vf) { 
+                      $no++;
                     echo "
                 <tr>
                 <td>$no</td>

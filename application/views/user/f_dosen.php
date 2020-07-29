@@ -20,7 +20,13 @@
       </div>
       <div class="form-group">
         <label><b>Kebutuhan</b></label>
-        <input type="text" name="kebutuhan" class="form-control" id="kebutuhan" placeholder="kebutuhan"  >
+        <!-- <input type="text" name="kebutuhan" class="form-control" id="kebutuhan" placeholder="kebutuhan"  > -->
+        <select name="surat" class="form-control">
+          <option value="">Pilih</option>
+           <? foreach ($surat as $s) : ?>
+            <option value=""><?php echo $s->nama_surat;?></option>
+          <?endforeach; ?>
+        </select>
       </div>
          <div class="form-group">
         <label><b>Keperluan/Deskripsi</b></label>

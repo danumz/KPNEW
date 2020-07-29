@@ -76,11 +76,13 @@
     if (window.location.href == baseurl+'admin/form_mahasiswa') {
       // console.log(window.location.href);
       $('.status').on('change',function(){
-          if (confirm('Apakah Anda setuju mengubah status ?')) {
+        if ($('input[name="file"]').val()) {
+if (confirm('Apakah Anda setuju mengubah status ?')) {
             var datas = {
               status : $(this).val(),
               id: $(this).data('id')
             }
+            console.log(datas)
             $.ajax({
                 method: 'POST',
                 url: baseurl+'admin/form_mahasiswa/mhs_selesai',
@@ -101,6 +103,12 @@
               $(this).val('0');
             }
           }
+        }else{
+alert('file masih kosong')
+        }
+
+
+          
       });
 
       var interval_start = setInterval(function() {

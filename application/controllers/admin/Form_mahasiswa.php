@@ -135,10 +135,29 @@ public function update()
 
     // $id_mhs = $id;
     // $where   = array('id_mhs' => $id_mhs);
+
+
+
     $data    = $this->input->post();
     // unset($data['id_mhs']);
-    $update   = array(
-        'status' => $this->input->post('status')
+   
+    $file    = $_FILES['file'];
+        if ($file=''){}else{
+            $config['upload_path'] = './assets/files';
+            $config['allowed_types'] = 'pdf|docx|doc';
+
+            $this->load->library('upload',$config);
+            if (!$this->upload->do_upload('file')) {
+                echo "Upload File Gagal"; die();
+            }else{
+                $file=$this->upload->data('file_name');
+            }
+
+        }
+         $update   = array(
+        'status' => $this->input->post('status'),
+        'file'=>$file
+
     );
     // $where = array ('id_mhs' => $id_mhs);
     // $this->m_mhs->selesai($where, 'form_mahasiswa');

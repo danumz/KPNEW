@@ -25,11 +25,12 @@
                 </thead>
               <tbody>
                 <?php 
-                $no = 1;
+                $no = 0;
                   $NPM = $this->session->userdata('NPM');
                 $verifikasi = $this->db->get_where('form_mahasiswa', array('NPM'=> $NPM))->result();
                 if ($verifikasi > 0) {
                   foreach ($verifikasi as $vf) { 
+                     $no++;
                     echo "
                 <tr>
                 <td>$no</td>
