@@ -118,47 +118,48 @@
             $this->load->view('templates/footer');
         }
 
-        public function mhs_selesai()
+        public function mhs_selesai($id, $status)
         {
             $data['title'] = 'Data Selesai';
             $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-
-            // $id_mhs = $id;
-            // $where   = array('id_mhs' => $id_mhs);
-
-
-
-            $data    = $this->input->post();
-            // unset($data['id_mhs']);
-
-            $file    = $_FILES['file'];
-            if ($file = '') {
-            } else {
-                $config['upload_path'] = './assets/files';
-                $config['allowed_types'] = 'pdf|docx|doc';
-
-                $this->load->library('upload', $config);
-                if (!$this->upload->do_upload('file')) {
-                    echo "Upload File Gagal";
-                    die();
-                } else {
-                    $file = $this->upload->data('file_name');
-                }
-            }
             $update   = array(
-                'status' => $this->input->post('status'),
-                'file' => $file
+                'status' => $status,
 
             );
-            // $where = array ('id_mhs' => $id_mhs);
-            // $this->m_mhs->selesai($where, 'form_mahasiswa');
-            //      $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Data Sudah Selesai</div>');
-            $this->m_mhs->update('id_mhs', $data['id'], $update, 'form_mahasiswa');
-            $this->m_mhs->update('mhs_id', $data['id'], $update, 'notif');
+            $this->m_mhs->update('id_mhs', $id, $update, 'form_mahasiswa');
+            $this->m_mhs->update('mhs_id', $id, $update, 'notif');
             echo json_encode('success');
             // redirect('admin/form_mahasiswa');
         }
+        public function mhs_selesai_file($id)
+        {
+            $namaFile = $_FILES['formData']['name'];
 
+            $ext = pathinfo($namaFile, PATHINFO_EXTENSION);
+            if ($ext == 'pdf' || $ext == 'PDF') {
+
+                $namaSementara = $_FILES['formData']['tmp_name'];
+
+                // tentukan lokasi file akan dipindahkan
+                $dirUpload = "./assets/files/";
+
+                // pindahkan file
+                $terupload = move_uploaded_file($namaSementara, $dirUpload . $namaFile);
+
+                // $this->db->where('id_mdt', $id_mdt);
+                // $update = $this->db->update('data_dukung_mutasi_daerah', [$filenames=>$namaFile]);
+                $update   = array(
+                    'file' => $namaFile
+                );
+                // $where = array ('id_mhs' => $id_mhs);
+                // $this->m_mhs->selesai($where, 'form_mahasiswa');
+                //      $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Data Sudah Selesai</div>');
+                $this->m_mhs->update('id_mhs', $id, $update, 'form_mahasiswa');
+            } else {
+
+                echo json_encode(2);
+            }
+        }
         public function search()
         {
             $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();

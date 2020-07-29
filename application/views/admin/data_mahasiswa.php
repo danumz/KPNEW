@@ -28,6 +28,7 @@
 
               </tr>
             </thead>
+
             <tbody>
               <?php
               $no = 1;
@@ -42,7 +43,7 @@
                   <td><?php echo $fm->keperluan ?></td>
                   <!--  <td><?php echo $fm->tgl_input ?></td>
                       <td><?php echo $fm->tgl_selesai ?></td> -->
-                  <td><input type="file" name="file" class="form-control-file" id="file"> </td>
+                  <td><input type="file" name="file" onchange="uploads(this, '<?= $fm->id_mhs ?>')" class="form-control-file" id="file"> </td>
 
                   <td>
                     <select name="status" class="status" data-id="<?php echo $fm->id_mhs; ?>">

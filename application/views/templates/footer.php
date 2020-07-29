@@ -64,6 +64,24 @@
 
  </body>
  <script type="text/javascript">
+   function uploads(name, id) {
+     //  alert(name)
+     var file = name.files[0];
+     var formData = new FormData();
+     formData.append('formData', file);
+     console.log(file)
+     $.ajax({
+       type: 'POST',
+       url: baseurl + 'admin/form_mahasiswa/mhs_selesai_file/' + id,
+       contentType: false,
+       processData: false,
+       data: formData,
+       success: function(d) {
+         console.log(d);
+
+       }
+     });
+   }
    $(document).ready(function() {
      $('#example').dataTable({
        "bPaginate": true,
@@ -80,15 +98,13 @@
      $('.status').on('change', function() {
        if ($('input[name="file"]').val()) {
          if (confirm('Apakah Anda setuju mengubah status ?')) {
-           var datas = {
-             status: $(this).val(),
-             id: $(this).data('id')
-           }
-           console.log(datas)
+           //  var datas = {
+           //    status: $(this).val(),
+           //    id: $(this).data('id')
+           //  }
            $.ajax({
-             method: 'POST',
-             url: baseurl + 'admin/form_mahasiswa/mhs_selesai',
-             data: datas,
+             type: 'POST',
+             url: baseurl + 'admin/form_mahasiswa/mhs_selesai/' + $(this).data('id') + '/' + $(this).val(),
              dataType: 'JSON',
              success: function(d) {
                console.log(d);
