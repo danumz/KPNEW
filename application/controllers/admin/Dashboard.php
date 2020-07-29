@@ -40,17 +40,16 @@ class Dashboard extends CI_Controller
 
     public function notiff()
     {
-       $data['notif'] = $this->m_notif->gabunganlimit();
-       $data['jumlah_notif'] = $this->m_notif->gabungan()->num_rows();
-       echo json_encode($data);
+        $data['notif'] = $this->m_notif->gabunganlimit();
+        $data['jumlah_notif'] = $this->m_notif->gabungan()->num_rows();
+        echo json_encode($data);
     }
 
     public function hapus($id_notif)
     {
-        $where = array ('id_notif' => $id_notif);
-    $this->m_notif->hapus_data($where, 'notif');
-         $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Data Berhasil dihapus</div>');
-    redirect('admin/Dashboard');
+        $where = array('id_notif' => $id_notif);
+        $this->m_notif->hapus_data($where, 'notif');
+        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data Berhasil dihapus</div>');
+        redirect('admin/Dashboard');
     }
 }
-

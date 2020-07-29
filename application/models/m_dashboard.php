@@ -1,10 +1,8 @@
 <?php
-class M_dashboard extends CI_Model{
+class M_dashboard extends CI_Model
+{
 
-public function index()
+    public function index()
     {
-        
     }
-    }
- 
-   
+}

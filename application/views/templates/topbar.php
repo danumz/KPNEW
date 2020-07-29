@@ -43,23 +43,23 @@
             <span class="badge badge-danger badge-counter notif"></span>
           </a>
           <!-- Dropdown - Alerts -->
-          <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown" style="height: auto; overflow-y: auto;" >
+          <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown" style="height: auto; overflow-y: auto;">
             <h6 class="dropdown-header">
               Alerts Centersss
             </h6>
-           <div id="notif">
-             <a class="dropdown-item d-flex align-items-center" href="#">
-              <div class="mr-3">
-                <div class="icon-circle bg-primary">
-                  <i class="fas fa-file-alt text-white"></i>
+            <div id="notif">
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <div class="mr-3">
+                  <div class="icon-circle bg-primary">
+                    <i class="fas fa-file-alt text-white"></i>
+                  </div>
                 </div>
-              </div>
-              <div>
-                <div class="small text-gray-500">December 12, 2019</div>
-                <span class="font-weight-bold">A new monthly report is ready to download!</span>
-              </div>
-            </a>
-           </div>
+                <div>
+                  <div class="small text-gray-500">December 12, 2019</div>
+                  <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                </div>
+              </a>
+            </div>
             <!-- 
             <a class="dropdown-item d-flex align-items-center" href="#">
               <div class="mr-3">
@@ -99,7 +99,7 @@
         </li>
 
         <!-- Nav Item - Messages -->
-      <!--   <li class="nav-item dropdown no-arrow mx-1">-->
+        <!--   <li class="nav-item dropdown no-arrow mx-1">-->
         <div class="topbar-divider d-none d-sm-block"></div>
 
         <!-- Nav Item - User Information -->
@@ -114,10 +114,10 @@
               <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
               Profile
             </a>
-             <div class="dropdown-divider"></div>
+            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="<?php echo base_url('admin/memo'); ?>">
               <i class="fas fa-book fa-sm fa-fw mr-2 text-gray-400"></i>
-             Memo
+              Memo
             </a>
 
             <div class="dropdown-divider"></div>
@@ -133,4 +133,3 @@
     </nav>
     <!-- End of Topbar -->
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-   

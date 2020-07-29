@@ -1,15 +1,15 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') or exit('No direct script access allowed');
 
 class dosen_m  extends CI_Model
 {
-      public function tampildata($limit,$start)
+    public function tampildata($limit, $start)
     {
-        return $this->db->get('form_dosen', $limit,$start);
+        return $this->db->get('form_dosen', $limit, $start);
     }
 
-    public function input_data($data,$table)
+    public function input_data($data, $table)
     {
-         $this->db->insert($table,$data);
+        $this->db->insert($table, $data);
     }
 
 
@@ -17,15 +17,13 @@ class dosen_m  extends CI_Model
     {
         $this->db->select('id_dosen');
         $this->db->order_by('id_dosen', 'ASC');
-        $q= $this->db->get('form_dosen')->last_row();
+        $q = $this->db->get('form_dosen')->last_row();
         if (!isset($q)) {
             return 0;
-        }else{
+        } else {
             return $q->id_dosen;
         }
-
     }
-    
 }
 
 

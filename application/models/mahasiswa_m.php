@@ -1,34 +1,32 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') or exit('No direct script access allowed');
 
 class Mahasiswa_m extends CI_Model
 {
 
- 
 
-        public function tampildata()
+
+    public function tampildata()
     {
         return $this->db->get('form_mahasiswa');
     }
 
-    public function input_data($data,$table)
+    public function input_data($data, $table)
     {
-         $this->db->insert($table,$data);
+        $this->db->insert($table, $data);
     }
 
     public function lastid()
     {
-    	$this->db->select('id_mhs');
-    	$this->db->order_by('id_mhs', 'ASC');
-    	$q= $this->db->get('form_mahasiswa')->last_row();
-    	if (!isset($q)) {
-    		return 0;
-    	}else{
+        $this->db->select('id_mhs');
+        $this->db->order_by('id_mhs', 'ASC');
+        $q = $this->db->get('form_mahasiswa')->last_row();
+        if (!isset($q)) {
+            return 0;
+        } else {
             return $q->id_mhs;
-    	}
-
+        }
     }
-
-   }
+}
 
 
 //     private $form_mahasiswa = "form_mahasiswa";
