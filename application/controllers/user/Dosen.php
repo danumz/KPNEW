@@ -20,9 +20,9 @@ class Dosen extends CI_Controller
         $data['title'] = 'Halaman Form Dosen';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $data['surat'] = $this->db->get_where('surat', ['nama_surat' => $this->session->userdata('nama_surat')])->row_array();
+        $data['surat'] = $this->db->get('surat')->result();
 
-
+        // print_r($data);
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);

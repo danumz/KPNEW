@@ -23,9 +23,9 @@
            <!-- <input type="text" name="kebutuhan" class="form-control" id="kebutuhan" placeholder="kebutuhan"  > -->
            <select name="surat" class="form-control">
              <option value="">Pilih</option>
-             <? foreach ($surat as $s) : ?>
-             <option value=""><?php echo $s->nama_surat; ?></option>
-             <?endforeach; ?>
+             <?php foreach ($surat as $s) : ?>
+               <option value=""><?php echo $s->nama_surat; ?></option>
+             <?php endforeach; ?>
            </select>
          </div>
          <div class="form-group">
